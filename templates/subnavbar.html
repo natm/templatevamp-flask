@@ -1,0 +1,34 @@
+{% macro navlink(endpoint,text,icon) %}
+{%- if request.endpoint.endswith(endpoint) == True %}
+<li class="active"><a href="{{endpoint}}"><i class="{{icon}}"></i><span>{{text}}</span> </a> </li>
+{%- else %}
+<li><a href="{{endpoint}}"><i class="{{icon}}"></i><span>{{text}}</span> </a> </li>
+{%- endif %}
+{% endmacro %}
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+
+        {{ navlink("dashboard","Dashboard","icon-dashboard") }}
+        {{ navlink("reports","Reports","icon-list-alt") }}
+        {{ navlink("guidely","App Tour","icon-facetime-video") }}
+        {{ navlink("charts","Charts","icon-bar-chart") }}
+        {{ navlink("shortcodes","Shortcodes","icon-code") }}
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/icons">Icons</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/pricing">Pricing Plans</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/error">404</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
+</div>
+<!-- /subnavbar -->
